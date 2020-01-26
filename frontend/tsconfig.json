@@ -10,10 +10,12 @@
     "lib": ["dom", "dom.iterable", "es5", "es6", "scripthost"],
     "module": "es6",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "outDir": "dist",
     "resolveJsonModule": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "es5"
     // "traceResolution": true
   },

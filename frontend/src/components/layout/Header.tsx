@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
   const classes = useStyles();
   return (
     <header className={classes.header} data-test="Header">
-      <Typography variant="h5">Trivia!</Typography>
+      <Typography variant="h5">Troli</Typography>
     </header>
   );
 };

@@ -1,8 +1,15 @@
 # Troli
 
+## TODO:
+
+- Cleanup UI.
+- Cleanup code.
+- Use real API.
+
 ## Architecture
 
 - React
+- MaterialUI
 - TypeScript
 
 ## Getting Started
@@ -12,4 +19,10 @@
 ```sh
 cd frontend
 npm install
+```
+
+2. Start the local dev server.
+
+```sh
+npm start
 ```
