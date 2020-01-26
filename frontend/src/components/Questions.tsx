@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
-import triviaService from 'trivia-service';
 
 import { Question } from './Question';
 import { Results } from './Results';
@@ -16,7 +15,11 @@ export class Questions extends Component {
     this.getQuestions();
   }
 
+  API_URL = 'https://opentdb.com/api.php?amount=5';
+
   computeAnswer = (answer, correctAnswer) => {
+    console.log(answer, correctAnswer);
+
     if (answer === correctAnswer) {
       this.setState((state: any) => {
         return {
@@ -33,21 +36,30 @@ export class Questions extends Component {
   };
 
   getQuestions = () => {
-    triviaService().then((questions) => {
-      this.setState({
-        questions,
-      });
-    });
+    return fetch(this.API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        // Combine answers.
+        data.results.forEach((question) => {
+          question.answers = [...question.incorrect_answers];
+          question.answers.push(question.correct_answer);
+        });
+
+        this.setState({
+          questions: data.results,
+        });
+      })
+      .catch(console.error);
   };
 
   playAgain = () => {
-    this.getQuestions();
-
-    this.setState((state: any) => {
-      return {
-        score: 0,
-        responses: 0,
-      };
+    this.getQuestions().then(() => {
+      this.setState((state: any) => {
+        return {
+          score: 0,
+          responses: 0,
+        };
+      });
     });
   };
 
@@ -58,12 +70,12 @@ export class Questions extends Component {
 
         {this.state.questions.length &&
           this.state.responses < 5 &&
-          this.state.questions.map(({ question, answers, correct, questionId }) => (
+          this.state.questions.map(({ question, answers, correct_answer }, index) => (
             <Question
               question={question}
               options={answers}
-              key={questionId}
-              selected={(answer) => this.computeAnswer(answer, correct)}
+              key={index}
+              selected={(answer) => this.computeAnswer(answer, correct_answer)}
             />
           ))}
 
