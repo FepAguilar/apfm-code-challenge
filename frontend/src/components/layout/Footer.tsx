@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => {
   });
 });
 
-export interface FooterProps {}
+export interface FooterProps { }
 
 export const Footer: React.FC<FooterProps> = (props) => {
   const classes = useStyles();
@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
           label="Home"
           icon={<Home />}
           component={Link}
-          to={clientRoutes.home()}
+          to={clientRoutes.triviaHome()}
         />
       </BottomNavigation>
     </footer>
