@@ -25,7 +25,21 @@ npm run start
 
 Imagine that we are a startup company focused on building the world’s greatest web-based trivia application. Our CEO is a madman, and has demanded that we build an MVP in one day. He does not care how basic this trivia app is or what features it has, so long as you can play a game of trivia. He does however want to minimize technical debt, so the solution should be abstracted well; adding new features in the days to come should be effortless. This is not a throw-away prototype. This is the beginning of our Trivia Empire.
 
-Goal: Build a simple trivia application utilizing https://opentdb.com. Feel free to make this as simple or as complex as you like (there are no wrong answers!). This exercise is as much about your decision making/reasoning as it is about your coding and technical abilities
+**Goal:** Build a simple trivia application utilizing https://opentdb.com. Feel free to make this as simple or as complex as you like (there are no wrong answers!). This exercise is as much about your decision making/reasoning as it is about your coding and technical abilities
+
+## Trivia Application Preview 
+
+**Trivia Initial Game**
+
+![Trivia Game Initial Page](screenshots/Trivia-Game-Initial.png)
+
+**Trivia Questions Indicator Preview**
+
+![Trivia Game Initial Page](screenshots/Trivia-Questions-Preview.png)
+
+**Trivia Results**
+
+![Trivia Game Initial Page](screenshots/Trivia-Game-Results.png)
 
 ## Architecture 
 
