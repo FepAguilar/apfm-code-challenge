@@ -6,29 +6,30 @@ import { Route, Switch } from 'react-router-dom';
 import { Footer } from 'components/layout/Footer';
 import { Header } from 'components/layout/Header';
 import { clientRoutes } from 'helpers/clientRoutes';
-import { Home } from 'components/Home';
+import { TriviaWrapper } from 'components/trivia/TriviaWrapper';
 
 const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
-    appWithStickyFooter: {
+    appTriviaWrapper: {
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100%',
+      width: "80%",
+      margin: "0 auto"
     },
   });
 });
 
-export interface AppProps {}
+export interface AppProps { }
 
 export const App: React.FC<AppProps> = (props) => {
   const classes = useStyles();
   return (
-    <div className={classes.appWithStickyFooter}>
+    <div className={classes.appTriviaWrapper}>
       <Header />
       <Switch>
-        <Route exact path={clientRoutes.home()} component={Home} />
+        <Route exact path={clientRoutes.triviaHome()} component={TriviaWrapper} />
       </Switch>
-      <Footer />
     </div>
   );
 };

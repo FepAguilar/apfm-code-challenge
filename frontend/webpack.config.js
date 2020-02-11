@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotenvWebpack = require('dotenv-webpack');
 const dotenv = require('dotenv');
 
-const envFile = path.resolve(__dirname, '../.env');
+const envFile = path.resolve(__dirname, '../local.env');
 const dotEnvConfig = dotenv.config({ path: envFile });
 if (dotEnvConfig.error) throw dotEnvConfig.error;
 const appConfig = Object.keys(dotEnvConfig.parsed).length === 0 ? undefined : dotEnvConfig.parsed;
@@ -84,18 +84,18 @@ module.exports = {
   devServer:
     APP_LOCATION === 'local'
       ? {
-          publicPath: '/', // URL path where the webpack files are served from
-          contentBase: distDir, // A directory to serve files non-webpack files from (Absolute path)
-          host: FRONTEND_HOST,
-          port: FRONTEND_PORT,
-          disableHostCheck: true,
-          hot: true,
-          inline: true,
-          watchOptions: {
-            ignored: /node_modules/,
-          },
-          historyApiFallback: true,
-        }
+        publicPath: '/', // URL path where the webpack files are served from
+        contentBase: distDir, // A directory to serve files non-webpack files from (Absolute path)
+        host: FRONTEND_HOST,
+        port: FRONTEND_PORT,
+        disableHostCheck: true,
+        hot: true,
+        inline: true,
+        watchOptions: {
+          ignored: /node_modules/,
+        },
+        historyApiFallback: true,
+      }
       : undefined,
 
   plugins,

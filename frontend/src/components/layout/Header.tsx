@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme: Theme) => {
   });
 });
 
-export interface HeaderProps {}
+export interface HeaderProps { }
 
 export const Header: React.FC<HeaderProps> = (props) => {
   const classes = useStyles();
   return (
     <header className={classes.header} data-test="Header">
-      <Typography variant="h5">Trivia!</Typography>
+      <Typography variant="h1">Trivia Game!</Typography>
     </header>
   );
 };
